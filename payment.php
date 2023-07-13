@@ -1,0 +1,275 @@
+
+<?php 
+
+include("header.php");
+?>
+    <!-- Sign in / sign up modal-->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-secondary">
+            <ul class="nav nav-tabs card-header-tabs" role="tablist">
+              <li class="nav-item"><a class="nav-link fw-medium active" href="#signin-tab" data-bs-toggle="tab" role="tab" aria-selected="true"><i class="ci-unlocked me-2 mt-n1"></i>Sign in</a></li>
+              <li class="nav-item"><a class="nav-link fw-medium" href="#signup-tab" data-bs-toggle="tab" role="tab" aria-selected="false"><i class="ci-user me-2 mt-n1"></i>Sign up</a></li>
+            </ul>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body tab-content py-4">
+            <form class="needs-validation tab-pane fade show active" autocomplete="off" novalidate id="signin-tab">
+              <div class="mb-3">
+                <label class="form-label" for="si-email">Email address</label>
+                <input class="form-control" type="email" id="si-email" placeholder="johndoe@example.com" required>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="si-password">Password</label>
+                <div class="password-toggle">
+                  <input class="form-control" type="password" id="si-password" required>
+                  <label class="password-toggle-btn" aria-label="Show/hide password">
+                    <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="mb-3 d-flex flex-wrap justify-content-between">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="si-remember">
+                  <label class="form-check-label" for="si-remember">Remember me</label>
+                </div><a class="fs-sm" href="#">Forgot password?</a>
+              </div>
+              <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Sign in</button>
+            </form>
+            <form class="needs-validation tab-pane fade" autocomplete="off" novalidate id="signup-tab">
+              <div class="mb-3">
+                <label class="form-label" for="su-name">Full name</label>
+                <input class="form-control" type="text" id="su-name" placeholder="John Doe" required>
+                <div class="invalid-feedback">Please fill in your name.</div>
+              </div>
+              <div class="mb-3">
+                <label for="su-email">Email address</label>
+                <input class="form-control" type="email" id="su-email" placeholder="johndoe@example.com" required>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="su-password">Password</label>
+                <div class="password-toggle">
+                  <input class="form-control" type="password" id="su-password" required>
+                  <label class="password-toggle-btn" aria-label="Show/hide password">
+                    <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="su-password-confirm">Confirm password</label>
+                <div class="password-toggle">
+                  <input class="form-control" type="password" id="su-password-confirm" required>
+                  <label class="password-toggle-btn" aria-label="Show/hide password">
+                    <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                  </label>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Sign up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="page-wrapper">
+      <!-- Add Payment Method-->
+      <form class="needs-validation modal fade" method="post" id="add-payment" tabindex="-1" novalidate>
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add a payment method</h5>
+              <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="radio" id="paypal" name="payment-method">
+                <label class="form-check-label" for="paypal">PayPal<img class="d-inline-block align-middle ms-2" src="img/card-paypal.png" width="39" alt="PayPal"></label>
+              </div>
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="radio" id="card" name="payment-method" checked>
+                <label class="form-check-label" for="card">Credit / Debit card<img class="d-inline-block align-middle ms-2" src="img/cards.png" width="187" alt="Credit card"></label>
+              </div>
+              <div class="row g-3 mb-2">
+                <div class="col-sm-6">
+                  <input class="form-control" type="text" name="number" placeholder="Card Number" required>
+                  <div class="invalid-feedback">Please fill in the card number!</div>
+                </div>
+                <div class="col-sm-6">
+                  <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                  <div class="invalid-feedback">Please provide name on the card!</div>
+                </div>
+                <div class="col-sm-3">
+                  <input class="form-control" type="text" name="expiry" placeholder="MM/YY" required>
+                  <div class="invalid-feedback">Please provide card expiration date!</div>
+                </div>
+                <div class="col-sm-3">
+                  <input class="form-control" type="text" name="cvc" placeholder="CVC" required>
+                  <div class="invalid-feedback">Please provide card CVC code!</div>
+                </div>
+                <div class="col-sm-6">
+                  <button class="btn btn-primary d-block w-100" type="submit">Register this card</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- Navbar 3 Level (Light)-->
+      
+      <!-- Page Title-->
+      <div class="page-title-overlap bg-dark pt-4">
+        <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+          <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+                <li class="breadcrumb-item"><a class="text-nowrap" href="index-2.html"><i class="ci-home"></i>Home</a></li>
+                <li class="breadcrumb-item text-nowrap"><a href="#">Account</a>
+                </li>
+                <li class="breadcrumb-item text-nowrap active" aria-current="page">Payment methods</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+            <h1 class="h3 text-light mb-0">My payment methods</h1>
+          </div>
+        </div>
+      </div>
+      <div class="container pb-5 mb-2 mb-md-4">
+        <div class="row">
+          <!-- Sidebar-->
+          <aside class="col-lg-4 pt-4 pt-lg-0 pe-xl-5">
+            <div class="bg-white rounded-3 shadow-lg pt-1 mb-5 mb-lg-0">
+              <div class="d-md-flex justify-content-between align-items-center text-center text-md-start p-4">
+                <div class="d-md-flex align-items-center">
+                  <div class="img-thumbnail rounded-circle position-relative flex-shrink-0 mx-auto mb-2 mx-md-0 mb-md-0" style="width: 6.375rem;"><span class="badge bg-warning position-absolute end-0 mt-n2" data-bs-toggle="tooltip" title="Reward points">384</span><img class="rounded-circle" src="img/shop/account/avatar.jpg" alt="Susan Gardner"></div>
+                  <div class="ps-md-3">
+                    <h3 class="fs-base mb-0">Susan Gardner</h3><span class="text-accent fs-sm">s.gardner@example.com</span>
+                  </div>
+                </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
+              </div>
+              <div class="d-lg-block collapse" id="account-menu">
+                <div class="bg-secondary px-4 py-3">
+                  <h3 class="fs-sm mb-0 text-muted">Dashboard</h3>
+                </div>
+                <ul class="list-unstyled mb-0">
+                  <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="account-orders.html"><i class="ci-bag opacity-60 me-2"></i>Orders<span class="fs-sm text-muted ms-auto">1</span></a></li>
+                  <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="account-wishlist.html"><i class="ci-heart opacity-60 me-2"></i>Wishlist<span class="fs-sm text-muted ms-auto">3</span></a></li>
+                  <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="account-tickets.html"><i class="ci-help opacity-60 me-2"></i>Support tickets<span class="fs-sm text-muted ms-auto">1</span></a></li>
+                </ul>
+                <div class="bg-secondary px-4 py-3">
+                  <h3 class="fs-sm mb-0 text-muted">Account settings</h3>
+                </div>
+                <ul class="list-unstyled mb-0">
+                  <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="account-profile.html"><i class="ci-user opacity-60 me-2"></i>Profile info</a></li>
+                  <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="account-address.html"><i class="ci-location opacity-60 me-2"></i>Addresses</a></li>
+                  <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3 active" href="account-payment.html"><i class="ci-card opacity-60 me-2"></i>Payment methods</a></li>
+                  <li class="d-lg-none border-top mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="account-signin.html"><i class="ci-sign-out opacity-60 me-2"></i>Sign out</a></li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+          <!-- Content  -->
+          <section class="col-lg-8">
+            <!-- Toolbar-->
+            <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
+              <h6 class="fs-base text-light mb-0">Primary payment method is used by default</h6><a class="btn btn-primary btn-sm" href="account-signin.html"><i class="ci-sign-out me-2"></i>Sign out</a>
+            </div>
+            <!-- Payment methods list-->
+            <div class="table-responsive fs-md mb-4">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th>Your credit / debit cards</th>
+                    <th>Name on card</th>
+                    <th>Expires on</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="py-3 align-middle">
+                      <div class="d-flex align-items-center"><img src="img/card-visa.png" width="39" alt="Visa">
+                        <div class="ps-2"><span class="fw-medium text-heading me-1">Visa</span>ending in 4999<span class="align-middle badge bg-info ms-2">Primary</span></div>
+                      </div>
+                    </td>
+                    <td class="py-3 align-middle">Susan Gardner</td>
+                    <td class="py-3 align-middle">08 / 2019</td>
+                    <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#" data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip" title="Remove">
+                        <div class="ci-trash"></div></a></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 align-middle">
+                      <div class="d-flex align-items-center"><img src="img/card-master.png" width="39" alt="MesterCard">
+                        <div class="ps-2"><span class="fw-medium text-heading me-1">MasterCard</span>ending in 0015</div>
+                      </div>
+                    </td>
+                    <td class="py-3 align-middle">Susan Gardner</td>
+                    <td class="py-3 align-middle">11 / 2021</td>
+                    <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#" data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip" title="Remove">
+                        <div class="ci-trash"></div></a></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 align-middle">
+                      <div class="d-flex align-items-center"><img src="img/card-paypal.png" width="39" alt="PayPal">
+                        <div class="ps-2"><span class="fw-medium text-heading me-1">PayPal</span>s.gardner@example.com</div>
+                      </div>
+                    </td>
+                    <td class="py-3 align-middle">&mdash;</td>
+                    <td class="py-3 align-middle">&mdash;</td>
+                    <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#" data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip" title="Remove">
+                        <div class="ci-trash"></div></a></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 align-middle">
+                      <div class="d-flex align-items-center"><img src="img/card-visa.png" width="39" alt="Visa">
+                        <div class="ps-2"><span class="fw-medium text-heading me-1">Visa</span>ending in 6073</div>
+                      </div>
+                    </td>
+                    <td class="py-3 align-middle">Susan Gardner</td>
+                    <td class="py-3 align-middle">09 / 2021</td>
+                    <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#" data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip" title="Remove">
+                        <div class="ci-trash"></div></a></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 align-middle">
+                      <div class="d-flex align-items-center"><img src="img/card-visa.png" width="39" alt="Visa">
+                        <div class="ps-2"><span class="fw-medium text-heading me-1">Visa</span>ending in 9791</div>
+                      </div>
+                    </td>
+                    <td class="py-3 align-middle">Susan Gardner</td>
+                    <td class="py-3 align-middle">05 / 2021</td>
+                    <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#" data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip" title="Remove">
+                        <div class="ci-trash"></div></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="text-sm-end"><a class="btn btn-primary" href="#add-payment" data-bs-toggle="modal">Add payment method</a></div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+ <?php
+
+include("footer.php");
+ ?>
+    <!-- Toolbar for handheld devices (Default)-->
+    <div class="handheld-toolbar">
+      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="account-wishlist.html"><span class="handheld-toolbar-icon"><i class="ci-heart"></i></span><span class="handheld-toolbar-label">Wishlist</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item" href="shop-cart.html"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span class="badge bg-primary rounded-pill ms-1">4</span></span><span class="handheld-toolbar-label">$265.00</span></a></div>
+    </div>
+    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+
+<!-- Mirrored from cartzilla.createx.studio/account-payment.html by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 19 Aug 2022 21:36:36 GMT -->
+</html>
